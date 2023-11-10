@@ -94,16 +94,14 @@ const InputPembeli = () => {
         }
       );
 
-      if (data.status === 200) {
-        setNamaCs("");
-        setPembeli("");
-        setNoTelp("");
-        setSelectedAddress("");
-        setDetailAlamat("");
-        setNamaProduk("");
-        setTotalHarga("");
-        setMetodePembayaran("");
-      }
+      setNamaCs("");
+      setPembeli("");
+      setNoTelp("");
+      setSelectedAddress("");
+      setDetailAlamat("");
+      setNamaProduk("");
+      setTotalHarga("");
+      setMetodePembayaran("");
     } catch (error) {
       console.log(error);
     }
