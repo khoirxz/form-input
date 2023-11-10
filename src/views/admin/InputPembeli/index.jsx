@@ -79,31 +79,45 @@ const InputPembeli = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const data = await axios.post(
-        "https://sheet.best/api/sheets/622c928a-f7b1-4b14-8d95-8506aa7e5939",
-        {
-          CS: namaCs,
-          NAMA: pembeli,
-          NO: noTelp,
-          ALAMAT: selectedAddress,
-          DETAIL: detailAlamat,
-          BARANG: namaProduk,
-          TOTAL: totalHarga,
-          PEMBAYARAN: metodePembayaran,
-        }
-      );
 
-      setNamaCs("");
-      setPembeli("");
-      setNoTelp("");
-      setSelectedAddress("");
-      setDetailAlamat("");
-      setNamaProduk("");
-      setTotalHarga("");
-      setMetodePembayaran("");
-    } catch (error) {
-      console.log(error);
+    if (
+      namaCs === "" ||
+      pembeli === "" ||
+      noTelp === "" ||
+      selectedAddress === "" ||
+      detailAlamat === "" ||
+      namaProduk === "" ||
+      totalHarga === "" ||
+      metodePembayaran === ""
+    ) {
+      alert("harap isi semua bidang");
+    } else {
+      try {
+        const data = await axios.post(
+          "https://sheet.best/api/sheets/622c928a-f7b1-4b14-8d95-8506aa7e5939",
+          {
+            CS: namaCs,
+            NAMA: pembeli,
+            NO: noTelp,
+            ALAMAT: selectedAddress,
+            DETAIL: detailAlamat,
+            BARANG: namaProduk,
+            TOTAL: totalHarga,
+            PEMBAYARAN: metodePembayaran,
+          }
+        );
+
+        setNamaCs("");
+        setPembeli("");
+        setNoTelp("");
+        setSelectedAddress("");
+        setDetailAlamat("");
+        setNamaProduk("");
+        setTotalHarga("");
+        setMetodePembayaran("");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (
